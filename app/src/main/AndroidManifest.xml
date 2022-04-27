@@ -10,7 +10,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.NotesApp">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.add_edit_note.AddEditNoteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".presentation.notes.NotesActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
