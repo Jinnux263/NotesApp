@@ -30,6 +30,7 @@ class NotesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes)
         initApp()
+
         addNoteBtn = findViewById(R.id.btn_add_note)
         addNoteBtn.setOnClickListener(View.OnClickListener {
             val intent = Intent(this, AddEditNoteActivity::class.java)
