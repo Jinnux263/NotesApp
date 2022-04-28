@@ -19,34 +19,32 @@ class NotesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes)
-        initApp()
+//        initApp()
     }
 
-//    fun observeData(){
-//        viewModel.repoListLive.observe(this, Observer{
-//            noteRecycleView.adapter.noteList = it
-//        })
-//    }
+    fun observeData(){
+        viewModel.noteList.observe(this, Observer{
+            noteAdapter.bind(it)
+        })
+    }
 
     private fun initApp(){
+
+        //LOI O DAY, KHONG TRUYEN DUOC CONTEXT VAO VIEWMODEL
+        viewModel = ViewModelProvider(this)[NotesViewModel::class.java]
 
         noteList = ArrayList()
         noteList.add(Note("Title", "This is a note", 124578, 1))
         noteList.add(Note("Title", "This is a note", 124578, 2))
         noteList.add(Note("Title", "This is a note", 124578, 3))
         noteList.add(Note("Title", "This is a note", 124578, 4))
+        noteAdapter = NoteAdapter(noteList)
 
-        viewModel = ViewModelProvider(this).get(NotesViewModel::class.java)
-//        viewModel.noteList.observe(this, Observer{
-//            noteList = it
-//
-//        })
-        noteAdapter = NoteAdapter(noteList as ArrayList)
         noteRecycleView = findViewById(R.id.note_recycle_view)
         noteRecycleView.adapter = noteAdapter
         noteRecycleView.layoutManager = LinearLayoutManager(this)
 
-
+        observeData()
 
     }
 }

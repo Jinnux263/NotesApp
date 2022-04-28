@@ -1,5 +1,7 @@
 package com.example.notesapp.domain.use_cases
 
+import com.example.notesapp.data.data_source.NoteDatabase
+import com.example.notesapp.data.repository.NoteRepositoryImpl
 import com.example.notesapp.domain.model.InvalidNoteException
 import com.example.notesapp.domain.model.Note
 import com.example.notesapp.domain.repository.NoteRepository
