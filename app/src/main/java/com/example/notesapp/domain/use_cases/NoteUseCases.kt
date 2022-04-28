@@ -4,6 +4,7 @@ import android.content.Context
 import com.example.notesapp.data.data_source.NoteDatabase
 import com.example.notesapp.data.repository.NoteRepositoryImpl
 
+// getNote chua duoc goi tu dau nen moi co mau xam
 class NoteUseCases(
     val getNotes : GetNotes,
     val getNote: GetNote,
@@ -17,7 +18,7 @@ class NoteUseCases(
             if (notesUseCase == null){
                 val noteDatabase = NoteDatabase.provideNoteDatabase(app)
                 val noteRepository = NoteRepositoryImpl.provideNoteRepositoryImpl(noteDatabase.useNoteDao())
-                val notesUseCase = NoteUseCases(
+                notesUseCase = NoteUseCases(
                     GetNotes(noteRepository),
                     GetNote(noteRepository),
                     AddNote(noteRepository),

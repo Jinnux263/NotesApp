@@ -15,20 +15,20 @@ abstract class NoteDatabase : RoomDatabase() {
     abstract fun useNoteDao() : NoteDao
 
     companion object {
-        private const val DATABASE_NAME = "note_database"
+        private const val DATABASE_NAME = "note_db"
         private var noteDatabase : NoteDatabase? = null
 
         fun provideNoteDatabase(context : Context) : NoteDatabase{
-            if (noteDatabase == null) {
-                noteDatabase = Room.databaseBuilder(context, NoteDatabase::class.java, DATABASE_NAME)
-                    .fallbackToDestructiveMigration()
-                    .build()
-            }
-            return noteDatabase as NoteDatabase
+//            if (noteDatabase == null) {
+//                noteDatabase = Room.databaseBuilder(context, NoteDatabase::class.java, DATABASE_NAME)
+//                    .fallbackToDestructiveMigration()
+//                    .build()
+//            }
+//            return noteDatabase as NoteDatabase
+            return Room.databaseBuilder(context, NoteDatabase::class.java, DATABASE_NAME)
+                .fallbackToDestructiveMigration()
+                .build()
         }
 
     }
-
-
-
 }

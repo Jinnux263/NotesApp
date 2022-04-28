@@ -6,7 +6,7 @@ import androidx.room.*
 data class Note(
     val title: String,
     val content: String,
-    val timestamp: Long,
+    val timestamp: Long?,
     @PrimaryKey val id: Int? = null
 )
 
