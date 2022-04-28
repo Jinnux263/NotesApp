@@ -36,6 +36,7 @@ class NoteAdapter(private var noteList: List<Note>) : RecyclerView.Adapter<NoteA
         return noteList.size
     }
 
+    // Loi o day
     fun bind(noteList: List<Note>){
         this.noteList = noteList
     }

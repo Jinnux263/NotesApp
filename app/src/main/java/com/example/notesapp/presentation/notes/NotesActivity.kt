@@ -26,6 +26,7 @@ class NotesActivity : AppCompatActivity() {
         initApp()
     }
 
+    // loi o ham bind
     private fun observeData(){
         viewModel.noteList.observe(this, Observer{
             noteAdapter.bind(it)
@@ -38,9 +39,17 @@ class NotesActivity : AppCompatActivity() {
 
         noteList = ArrayList()
         noteList.add(Note("Title", "This is note 0", 1))
-        noteList.add(Note("Title1", "This is note 1", 2))
-        noteList.add(Note("Title2", "This is note 2", 3))
-        noteList.add(Note("Title3", "This is note 3", 4))
+        noteList.add(Note("Title 1", "This is note 1", 2))
+        noteList.add(Note("Title 2", "This is note 2", 3))
+        noteList.add(Note("Title 3", "This is note 3", 4))
+        noteList.add(Note("Title 4", "This is note 4", 1))
+        noteList.add(Note("Title 5", "This is note 5", 2))
+        noteList.add(Note("Title 6", "This is note 6", 3))
+        noteList.add(Note("Title 7", "This is note 7", 4))
+        noteList.add(Note("Title 8", "This is note 8", 1))
+        noteList.add(Note("Title 9", "This is note 9", 2))
+        noteList.add(Note("Title 10", "This is note 10", 3))
+        noteList.add(Note("Title 11", "This is note 11", 4))
 
         noteAdapter = NoteAdapter(noteList)
 
@@ -48,7 +57,7 @@ class NotesActivity : AppCompatActivity() {
         noteRecycleView.adapter = noteAdapter
         noteRecycleView.layoutManager = LinearLayoutManager(this)
 
-        observeData()
+        //observeData()
 
     }
 }
