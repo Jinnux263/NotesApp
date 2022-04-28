@@ -21,6 +21,10 @@ class NotesViewModel(
         recentlyDeletedNote = note
     }
 
+    fun addNote(note: Note)  = viewModelScope.launch {
+        notesUseCases.addNote(note)
+    }
+
     fun restoreNote(id: Int) = viewModelScope.launch {
             notesUseCases.addNote(recentlyDeletedNote ?: return@launch)
             recentlyDeletedNote = null

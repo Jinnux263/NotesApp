@@ -11,11 +11,14 @@ import com.example.notesapp.R
 import com.example.notesapp.domain.model.Note
 
 
-class NoteAdapter(private var noteList: List<Note>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+class NoteAdapter() : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+    private var noteList: List<Note> = ArrayList()
+
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.note_title)
         val description: TextView = itemView.findViewById(R.id.note_description)
     }
+
 
     @NonNull
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -36,7 +39,6 @@ class NoteAdapter(private var noteList: List<Note>) : RecyclerView.Adapter<NoteA
         return noteList.size
     }
 
-    // Loi o day
     fun bind(noteList: List<Note>){
         this.noteList = noteList
     }
