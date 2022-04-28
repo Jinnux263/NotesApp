@@ -19,15 +19,15 @@ abstract class NoteDatabase : RoomDatabase() {
         private var noteDatabase : NoteDatabase? = null
 
         fun provideNoteDatabase(context : Context) : NoteDatabase{
-//            if (noteDatabase == null) {
-//                noteDatabase = Room.databaseBuilder(context, NoteDatabase::class.java, DATABASE_NAME)
-//                    .fallbackToDestructiveMigration()
-//                    .build()
-//            }
-//            return noteDatabase as NoteDatabase
-            return Room.databaseBuilder(context, NoteDatabase::class.java, DATABASE_NAME)
-                .fallbackToDestructiveMigration()
-                .build()
+            if (noteDatabase == null) {
+                noteDatabase = Room.databaseBuilder(context, NoteDatabase::class.java, DATABASE_NAME)
+                    .fallbackToDestructiveMigration()
+                    .build()
+            }
+            return noteDatabase as NoteDatabase
+//            return Room.databaseBuilder(context, NoteDatabase::class.java, DATABASE_NAME)
+//                .fallbackToDestructiveMigration()
+//                .build()
         }
 
     }

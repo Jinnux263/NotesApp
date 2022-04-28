@@ -37,10 +37,10 @@ class NotesActivity : AppCompatActivity() {
         viewModel = NotesViewModel(noteUseCases)
 
         noteList = ArrayList()
-        noteList.add(Note("Title", "This is a note", 124578, 1))
-        noteList.add(Note("Title", "This is a note", 124578, 2))
-        noteList.add(Note("Title", "This is a note", 124578, 3))
-        noteList.add(Note("Title", "This is a note", 124578, 4))
+        noteList.add(Note("Title", "This is note 0", 1))
+        noteList.add(Note("Title1", "This is note 1", 2))
+        noteList.add(Note("Title2", "This is note 2", 3))
+        noteList.add(Note("Title3", "This is note 3", 4))
 
         noteAdapter = NoteAdapter(noteList)
 
