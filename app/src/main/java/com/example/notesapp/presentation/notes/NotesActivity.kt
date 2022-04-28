@@ -1,7 +1,10 @@
 package com.example.notesapp.presentation.notes
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.View
+import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,6 +15,8 @@ import com.example.notesapp.data.data_source.NoteDatabase
 import com.example.notesapp.data.repository.NoteRepositoryImpl
 import com.example.notesapp.domain.model.Note
 import com.example.notesapp.domain.use_cases.*
+import com.example.notesapp.presentation.add_edit_note.AddEditNoteActivity
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class NotesActivity : AppCompatActivity() {
@@ -19,11 +24,18 @@ class NotesActivity : AppCompatActivity() {
     private lateinit var noteRecycleView: RecyclerView
     private lateinit var noteAdapter: NoteAdapter
     private lateinit var viewModel: NotesViewModel
+    private lateinit var addNoteBtn: FloatingActionButton
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_notes)
         initApp()
+        addNoteBtn = findViewById(R.id.btn_add_note)
+        addNoteBtn.setOnClickListener(View.OnClickListener {
+            val intent = Intent(this, AddEditNoteActivity::class.java)
+            startActivity(intent)
+        })
+
     }
 
     // Can chinh sua cho nay, khong phai luc nao cung la insert
@@ -45,18 +57,18 @@ class NotesActivity : AppCompatActivity() {
 
         observeData()
 
-        viewModel.addNote(Note("Title", "This is note 0", 1))
-        viewModel.addNote(Note("Title 1", "This is note 1", 2))
-        viewModel.addNote(Note("Title 2", "This is note 2", 3))
-        viewModel.addNote(Note("Title 3", "This is note 3", 4))
-        viewModel.addNote(Note("Title 4", "This is note 4", 5))
-        viewModel.addNote(Note("Title 5", "This is note 5", 6))
-        viewModel.addNote(Note("Title 6", "This is note 6", 7))
-        viewModel.addNote(Note("Title 7", "This is note 7", 8))
-        viewModel.addNote(Note("Title 8", "This is note 8", 9))
-        viewModel.addNote(Note("Title 9", "This is note 9", 10))
-        viewModel.addNote(Note("Title 10", "This is note 10", 11))
-        viewModel.addNote(Note("Title 11", "This is note 11", 12))
+//        viewModel.addNote(Note("Title", "This is note 0", 1))
+//        viewModel.addNote(Note("Title 1", "This is note 1", 2))
+//        viewModel.addNote(Note("Title 2", "This is note 2", 3))
+//        viewModel.addNote(Note("Title 3", "This is note 3", 4))
+//        viewModel.addNote(Note("Title 4", "This is note 4", 5))
+//        viewModel.addNote(Note("Title 5", "This is note 5", 6))
+//        viewModel.addNote(Note("Title 6", "This is note 6", 7))
+//        viewModel.addNote(Note("Title 7", "This is note 7", 8))
+//        viewModel.addNote(Note("Title 8", "This is note 8", 9))
+//        viewModel.addNote(Note("Title 9", "This is note 9", 10))
+//        viewModel.addNote(Note("Title 10", "This is note 10", 11))
+//        viewModel.addNote(Note("Title 11", "This is note 11", 12))
 
     }
 }
